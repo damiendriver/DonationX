@@ -16,6 +16,7 @@ class Donate : AppCompatActivity() {
 
     private lateinit var donateLayout : ActivityDonateBinding
     lateinit var app: DonationXApp
+    var totalDonated = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,5 +71,12 @@ class Donate : AppCompatActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        totalDonated = app.donationsStore.findAll().sumOf { it.amount }
+        donateLayout.progressBar.progress = totalDonated
+        donateLayout.totalSoFar.text = getString(R.string.totalSoFar,totalDonated)
     }
 }
