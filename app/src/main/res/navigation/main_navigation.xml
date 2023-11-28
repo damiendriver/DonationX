@@ -27,4 +27,9 @@
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
+    <fragment
+        android:id="@+id/aboutusFragment"
+        android:name="ie.setu.donationx.fragments.AboutusFragment"
+        android:label="@string/action_about"
+        tools:layout="@layout/fragment_aboutus" />
 </navigation>
